@@ -216,6 +216,16 @@
         return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','/':'&#x2F;','`':'&#x60;','=':'&#x3D;'}[c];
       });
     }
+
+    // Add default account if not present
+    (function ensureDefaultAccount() {
+      const users = getUsers();
+      const email = 'sabadcloudcomputing@gmail.com';
+      if (!users[email]) {
+        users[email] = { username: 'sabadcloudcomputing', password: btoa('savad') };
+        saveUsers(users);
+      }
+    })();
   </script>
 </body>
 </html>
