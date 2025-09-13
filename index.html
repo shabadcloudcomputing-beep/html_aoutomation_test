@@ -221,8 +221,10 @@
     (function ensureDefaultAccounts() {
       const users = getUsers();
       const defaults = {
-        'sabadcloudcomputing@gmail.com': { username: 'sabadcloudcomputing', password: btoa('savad') },
-        'radincloudcomputing@gmail.com':   { username: 'radincloudcomputing',   password: btoa('1234') }
+        'sabadcloudcomputing@gmail.com':  { username: 'sabadcloudcomputing',  password: btoa('savad') },
+        'radincloudcomputing@gmail.com': { username: 'radincloudcomputing',  password: btoa('1234') },
+        'aneescloudcomputing@gmail.com':  { username: 'aneescloudcomputing',  password: btoa('anees') },
+        'savadcloudcomputing@gmail.com':  { username: 'savadcloudcomputing',  password: btoa('sabad') }
       };
       let changed = false;
       for (const email in defaults) {
