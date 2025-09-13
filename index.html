@@ -217,14 +217,21 @@
       });
     }
 
-    // Add default account if not present
-    (function ensureDefaultAccount() {
+    // Add default accounts if not present
+    (function ensureDefaultAccounts() {
       const users = getUsers();
-      const email = 'sabadcloudcomputing@gmail.com';
-      if (!users[email]) {
-        users[email] = { username: 'sabadcloudcomputing', password: btoa('savad') };
-        saveUsers(users);
+      const defaults = {
+        'sabadcloudcomputing@gmail.com': { username: 'sabadcloudcomputing', password: btoa('savad') },
+        'radincloudcomputing@gmail.com':   { username: 'radincloudcomputing',   password: btoa('1234') }
+      };
+      let changed = false;
+      for (const email in defaults) {
+        if (!users[email]) {
+          users[email] = defaults[email];
+          changed = true;
+        }
       }
+      if (changed) saveUsers(users);
     })();
   </script>
 </body>
